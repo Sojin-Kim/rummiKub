@@ -9,7 +9,7 @@ import org.springframework.web.servlet.FlashMapManager;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
-import com.workout.app.member.model.dto.Member;
+import com.workout.app.member.vo.Member;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 

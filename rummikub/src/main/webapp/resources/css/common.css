@@ -1,2 +1,17 @@
 @charset "UTF-8";
 
+html,body{
+	width:100%;
+	height:100%;
+}
+
+/* 하단 css는 가로모드 적용 시 테스트해볼것 */
+/*html{
+	transform:rotate(-90deg);
+	transform-origin: top left;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100vh;
+	height: 100vw;
+}*/
