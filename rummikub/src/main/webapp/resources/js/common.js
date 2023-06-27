@@ -26,7 +26,7 @@ function getSession(type, key){
 	}else if(type=="session"){
 		return sessionStorage.getItem(key); // 저장
 	}
-}
+} 
 
 /**
  * 세션 삭제
