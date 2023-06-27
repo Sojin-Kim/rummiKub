@@ -1,10 +1,10 @@
-package com.workout.app.member.model.dao;
+package com.workout.app.member.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.workout.app.member.model.dto.Member;
+import com.workout.app.member.vo.Member;
 
 @Mapper
 public interface MemberDao {

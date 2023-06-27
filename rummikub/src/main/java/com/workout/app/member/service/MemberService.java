@@ -1,8 +1,8 @@
-package com.workout.app.member.model.service;
+package com.workout.app.member.service;
 
 import java.util.List;
 
-import com.workout.app.member.model.dto.Member;
+import com.workout.app.member.vo.Member;
 
 public interface MemberService {
 

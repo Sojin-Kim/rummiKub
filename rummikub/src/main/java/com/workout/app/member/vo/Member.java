@@ -1,4 +1,4 @@
-package com.workout.app.member.model.dto;
+package com.workout.app.member.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

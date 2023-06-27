@@ -1,12 +1,13 @@
-package com.workout.app.member.model.service;
+package com.workout.app.member.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.workout.app.member.model.dao.MemberDao;
-import com.workout.app.member.model.dto.Member;
+import com.workout.app.member.dao.MemberDao;
+import com.workout.app.member.service.MemberService;
+import com.workout.app.member.vo.Member;
 
 @Service
 public class MemberServiceImpl implements MemberService{
