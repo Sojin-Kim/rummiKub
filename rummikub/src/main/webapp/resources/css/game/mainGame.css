@@ -3,3 +3,49 @@
 /* 
   메인 게임 화면
 */
+body{
+  height:100%;
+}
+main{
+  width:100%;
+  
+}
+table {
+  margin-top:10px;
+ /* margin-left:auto; 
+  margin-right:auto;*/
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+th, td {
+  width: 20px;
+  height:30px;
+  border: 1px solid gray;
+}
+
+#card {
+  position:relative;  
+}
+
+#privateGrid{
+  width:100%;
+}
+
+.card {
+    position:absolute;
+    width: 20px;
+    height:30px;
+    text-align:center;  
+}
+.blackcard {
+    border: 1px solid black;
+}
+.redcard {
+    border: 1px solid red;
+}
+.bluecard {
+    border: 1px solid blue;
+}
+.yellowcard {
+    border: 1px solid yellow;
+}
