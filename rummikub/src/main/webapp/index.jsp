@@ -23,36 +23,34 @@
 
 .loadingImg{
 	position: absolute;
-    transform: translate(28%, 6%);
+	width:100vw;
 } /* 이미지 중앙 정렬 */
 
 /* 로딩바 */
-#loading-bar{
-	position: absolute;
-	top:251px;
-	left:298px;
-	background-color:#f0c986;
-	width:0px;
-	height:25px;
+.loading-div{
+position: relative;
+    width: 0%;
+	height:100vh;
+    overflow: hidden;
 	animation : load 5s 1s ease-in forwards;
 }
 
 /* 로딩바 애니메이션 */
 @keyframes load{
 	0%{    
-		width:0px;
+		width:0%;
 	}
 	25%{
-		width:100px;
+		width:25%;
 	}
 	50%{
-		width:200px;
+		width:50%;
 	}
 	75%{
-		width:300px;
+		width:75%;
 	}
 	100%{
-		width:404px;
+		width:100%;
 	}
 }
 </style>
@@ -80,11 +78,68 @@ function sessionSrch(){
 	    location.replace(url);	// replace 시 뒤로가기 안됨
 	}, 6500);	// 6.5초 이후 replace 실행
 }
+
+/* 
+
+var ws;
+
+function connect() {
+    var username = document.getElementById("username").value;
+    
+    var host = document.location.host;
+    var pathname = document.location.pathname;
+    console.log(host);
+    console.log(pathname);
+    
+    ws = new WebSocket("ws://localhost:10000/chat/" + username);
+
+    ws.onmessage = function(event) {
+    var log = document.getElementById("log");
+        console.log(event.data);
+        var message = JSON.parse(event.data);
+        log.innerHTML += message.from + " : " + message.content + "\n";
+    };
+}
+
+function send() {
+    var content = document.getElementById("msg").value;
+    var json = JSON.stringify({
+        "content":content
+    });
+
+    ws.send(json);
+} */
+
 </script>
 <body>
 	<div id="loadingDiv">
-		<div id="loading-bar"></div>
-		<img class="loadingImg" src="${pageContext.request.contextPath}/resources/images/loading/load2.png">
+		<!-- <div id="loading-bar"></div> -->
+		<img class="loadingImg" src="${pageContext.request.contextPath}/resources/images/loading/loading1.jpg">
+		<div class="loading-div">
+			<img class="loadingImg" src="${pageContext.request.contextPath}/resources/images/loading/loading2.png">
+		</div>	
 	</div>
 </body>
+
+<!-- 
+<table>
+    <tr>
+        <td colspan="2">
+            <input type="text" id="username" placeholder="Username"/>
+            <button type="button" onclick="connect();" >Connect</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <textarea readonly="true" rows="10" cols="80" id="log"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" size="51" id="msg" placeholder="Message"/>
+            <button type="button" onclick="send();" >Send</button>
+        </td>
+    </tr>
+</table>
+ -->
 </html>

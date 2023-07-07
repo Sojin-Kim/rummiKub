@@ -1,51 +1,84 @@
 @charset "UTF-8";
 
-/* 
-  메인 게임 화면
-*/
+/*   메인 게임 화면		*/
 body{
-  height:100%;
-}
-main{
-  width:100%;
-  
-}
-table {
-  margin-top:10px;
- /* margin-left:auto; 
-  margin-right:auto;*/
-  border: 1px solid gray;
-  border-collapse: collapse;
+  	height:100%;
+    display: flex;
+    flex-direction: row;
 }
 th, td {
-  width: 20px;
-  height:30px;
-  border: 1px solid gray;
+  	width: 35px;
+  	height:50px;
+  	min-width: 35px;
+  	border: 1px solid gray;
 }
-
-#card {
-  position:relative;  
+/* 왼쪽 사이드 */
+#leftSide{
+	width:20%;
+	background:red;
 }
-
+/* 중앙 */
+#middle{
+	margin-top:5%;
+	width:60%;
+	background:orange;
+}
+#mainGrid{
+  	width:100%;
+}
+#mainTable {
+  	margin-left:auto; 
+  	margin-right:auto;
+  	border: 1px solid gray;
+  	border-collapse: collapse;
+}
 #privateGrid{
-  width:100%;
+  	width:100%;
+  	margin-top:10px;  
+}
+.privateTable {
+  	margin-top:20px;
+  	margin-left:auto; 
+  	margin-right:auto;
+  	border: 1px solid gray;
+  	border-collapse: collapse;
+}
+#privateTable2, #privateTable3, #privateTable4{
+	/* display: none; */
+}
+/* 오른쪽 사이드 */
+#rightSide{
+	width:20%;
+	background:yellow;
 }
 
+
+/* 카드 */
+#card {
+  	position:relative;  
+}
 .card {
-    position:absolute;
-    width: 20px;
-    height:30px;
-    text-align:center;  
+    position:relative;
+    width: 33px;
+    height:48px;
+    text-align:center;
+    color: white;
+    left: 0px;
+    top: 0px;
 }
 .blackcard {
     border: 1px solid black;
+    background-color: black;
 }
 .redcard {
     border: 1px solid red;
+    background-color: red;
 }
 .bluecard {
     border: 1px solid blue;
+    background-color: blue;
 }
 .yellowcard {
-    border: 1px solid yellow;
+    border: 1px solid darkorange;
+    background-color: darkorange;
 }

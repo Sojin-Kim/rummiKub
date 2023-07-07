@@ -16,7 +16,7 @@ $(document).ready(function(){
 		}
 		gridStr += "</tr>\n";
 	}
-	$("#mainGrid").append(gridStr);
+	$("#mainTable").append(gridStr);
 	
 	// 개인 타일 판 만들기
 	var pGridStr = "";
@@ -76,7 +76,7 @@ function start(){
 			console.log(card.attr('class'));
 			if(card.attr('class').match("cardPack")){	// cardPack 클래스 있는지 확인
 				console.log("카드팩 안에 존재");
-				card.attr('class',$("#card1").attr('class').replace(' cardPack',''));
+				card.attr('class', card.attr('class').replace(' cardPack',''));
 				playerCard[p][playerCard[p].length] = randomNum;
 			}else{
 				console.log("카드팩 안에 미존재");
@@ -87,19 +87,16 @@ function start(){
 		}
 	}
 
-	// 화면에서 애니메이션 추가
+	// 화면에서 애니메이션 추가 -> x,y 좌표로 수정하기..
 	for(var p = 0; p < playerCard.length ; p++){	// 플레이어
 		var tiles = $("#privateTable"+(p+1));
 		console.log(tiles);
 		for(var c = 0; c < playerCard[p].length ; c++){	// 가지고 있는 카드 번호
 			var td = tiles.find(".privateTd"+c);
-			console.log(playerCard[p][c]);
 			var card = $("#card"+playerCard[p][c]);
-			console.log(card);
 			td.append(card);
-			//card.remove();
 		}
-	}
+	}    
 	console.log(playerCard);
 }
 
