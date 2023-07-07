@@ -8,7 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>rummiKub</title>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../resources/js/common.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
 </head>
 <body>
@@ -17,3 +18,4 @@
 			프로필/골드/설정 등 헤더 추가
 		</div>
 	</header>
+	<div id="main-body">
