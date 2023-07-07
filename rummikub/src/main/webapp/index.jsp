@@ -56,7 +56,7 @@ position: relative;
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
-	//saveSession("local","login","{email:so97so@naver.com, nickname:sojin}");
+	saveSession("local","login","{email:so97so@naver.com, nickname:sojin}");
 	sessionSrch();	// 세션 정보 조회 후 페이지 이동
 });
 
@@ -68,10 +68,10 @@ function sessionSrch(){
 	var url = ""; // 이동할 url
 	if(isNull(login)){	// 세션에 로그인 정보가 없을 경우
 		console.log("회원가입으로 이동");
-		url = "/member/login";
+		url = "member/login";
 	}else{
 		console.log("메인메뉴로 이동");
-		url = "/main/main";
+		url = "main/main";
 	}
 	// 애니메이션 끝나고 이동하기 위해 시간 지연시키기
 	setTimeout(function() {
