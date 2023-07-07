@@ -19,42 +19,62 @@
   2023/06/28 ksj 추가
 -->
 <body>
-	<input type="button" value="시작하기" id="startBtn" onclick="start()">
-	
-	<main>
-	  <table id="mainGrid">
-	    
-	  </table>
-	</main>
-	<div id="prifile">
-	  
+	<div id="leftSide">
+		<div id="prifile">	<!-- 왼쪽 사이드 -->
+			<div id="player2">
+			
+			
+			</div>
+			<div id="player3">
+			
+			
+			</div>
+			<div id="player4">
+			
+			
+			</div>
+			<div id="player1">
+			
+			
+			</div>
+		</div>
 	</div>
-	<div id="privateGrid">	<!-- 내꺼 빼고 히든 시킬 예정 :  -->
-		player1
-		<table id="privateTable1">
+	<div id="middle">		<!-- 중앙 -->
+		<main id="mainGrid">
+		  <table id="mainTable">
+		  </table>
+		</main>
 		
-		</table>
-		player2
-		<table id="privateTable2">
-		
-		</table>
-		player3
-		<table id="privateTable3">
-		
-		</table>
-		player4
-		<table id="privateTable4">
-		
-		</table>
+		<div id="privateGrid">	<!-- 내꺼 빼고 히든 시킬 예정 :  -->
+			<table id="privateTable1" class="privateTable">
+			
+			</table>
+			<table id="privateTable2" class="privateTable">
+			
+			</table>
+			<table id="privateTable3" class="privateTable">
+			
+			</table>
+			<table id="privateTable4" class="privateTable">
+			
+			</table>
+		</div>
 	</div>
+	<div id="rightSide">	<!-- 오른쪽 사이드 -->
 	
-	<div id="card">
-	  <div id="jokercard">
-	    <div class="blackcard card cardPack" id="card105">J</div>
-	    <div class="redcard card cardPack" id="card106">J</div>
-	  </div>
+	
+		<!-- 히든 처리 모아두기 -->
+		<div id="hidden">
+			<input type="button" value="시작하기" id="startBtn" onclick="start()">
+			<div id="card">
+			  <div id="jokercard">
+			    <div class="blackcard card cardPack" id="card105">J</div>
+			    <div class="redcard card cardPack" id="card106">J</div>
+			  </div>
+			</div>
+		</div>
 	</div>
-	
 </body>
+
 
 </html>
