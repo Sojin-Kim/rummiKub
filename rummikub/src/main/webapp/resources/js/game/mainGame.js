@@ -3,6 +3,70 @@
  * 2023/06/23 ksj 추가
  */
 $(document).ready(function(){
+	// 방 생성하기
+	var urlParams = new URL(location.href).searchParams;
+	roomId = urlParams.get('roomId');
+	console.log(roomId);
+	// 방 들어와있으면 안타도록
+	if(isNull(roomId) ||  isEmpty(roomId)){
+		createRoom();
+	}
+	
+	// 게임판, 개인 타일 판, 전체 카드팩 세팅
+	makeSetting();
+	
+	// 카드 나눠주기 -> 인원 다 차면
+	//var gameSet = getSession("local","gameSet");
+	//cardShare(JSON.parse(gameSet).gamerCnt);
+});
+
+// 방 생성하기 -> 화면 들어오기 전에 하면 좋을 듯..
+function createRoom(){
+	var turnTime = $("#turnTime").val();
+	var gamerCnt = $("#gamerCnt").val();
+	var gameAmt = $("#gameAmt").val();
+	saveSession("local","gameSet",'{"turnTime":'+turnTime+', "gamerCnt":'+gamerCnt+', "gameAmt":'+gameAmt+'}');
+	var login = getSession("local","login");
+	$.ajax({
+	    url: "/app/game/createRoom", //request 보낼 서버의 경로
+	    type:'post', // 메소드(get, post)
+	    data: {
+				turnTime:turnTime,
+				gamerCnt:gamerCnt,
+				gameAmt:gameAmt,
+				mid:JSON.parse(login).mid,
+				nickName:JSON.parse(login).nickName
+			  },
+	    success: function(data) {
+			console.log(data);
+			location.replace("/app/game/mainGame?roomId="+data.roomId);
+	        //서버로부터 정상적으로 응답이 왔을 때 실행
+	    },
+	    error: function(err) {
+	        //서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+	    }
+	});
+}
+
+// 1초에 10번 조회 -> 들어온 사람이 있는지 확인
+function srchRoom(){
+	$.ajax({
+	    url: "/app/game/srchRoom", //request 보낼 서버의 경로
+	    type:'post', // 메소드(get, post)=
+	    data: {
+				roomId : roomId
+			  },
+	    success: function(data) {
+	        //서버로부터 정상적으로 응답이 왔을 때 실행
+			console.log(data);  // -> Map말고 Json 형태로 받는 방법 찾아보기
+	    },
+	    error: function(err) {
+	        //서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+	    }
+	});
+}
+// 게임판, 개인 타일 판, 전체 카드팩 세팅
+function makeSetting(){
 	var card = document.getElementsByClassName("card");
 	
 	console.log(card);
@@ -61,15 +125,17 @@ $(document).ready(function(){
 	cardStr += '</div>';
 	$("#card").append(cardStr);
 	
-});
+}
 
-function start(){
-	$("#startBtn").hide();
+// 카드 나눠주기
+function cardShare(gamerCnt){
+	// 시작 시 카드 나눠주기
 	var randomNum = Math.floor(Math.random() * 106) + 1;
 	console.log(randomNum);
+	console.log("gamerCnt=="+gamerCnt);
 	
 	// 14장씩 나눠주기
-	for(var p = 0; p < playerCard.length ; p++){	// playerCard.length 플레이어 숫자로 변경
+	for(var p = 0; p < gamerCnt ; p++){	// gamerCnt 플레이어 숫자로 변경함.
 		while(true){	// 무한루프
 			var randomNum = Math.floor(Math.random() * 106) + 1;
 			var card = $("#card" + randomNum);
@@ -101,3 +167,4 @@ function start(){
 }
 
 var playerCard = [[],[],[],[]];
+var roomId;

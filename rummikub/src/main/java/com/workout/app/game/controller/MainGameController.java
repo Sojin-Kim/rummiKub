@@ -1,31 +1,68 @@
 package com.workout.app.game.controller;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.workout.app.game.vo.MainGame;
+import com.workout.app.game.controller.GameRoomPkg.GameRoom;
+import com.workout.app.game.controller.GameRoomPkg.GameUser;
 import com.workout.app.game.service.MainGameService;
-/*sample*/
+import com.workout.app.game.vo.MainGame;
+
 @Controller
 @RequestMapping("/game")
 public class MainGameController {
 
 	@Autowired
 	private MainGameService mainGameService;
-
-	//회원 목록 화면 호출
+	
+	// 방 조인하기
+	@ResponseBody
+	@PostMapping("/createRoom")
+	public Map<String, String> createRoom(MainGame mainGame) {
+		//방만들기
+		GameRoom gameRoom = mainGameService.createRoom(mainGame);
+		//model.addAttribute("mainGame",mainGame);
+		Map<String, String> result = new HashMap<String, String>();
+		result.put("roomId", String.valueOf(gameRoom.getId()));
+		//result.put("userList", String.valueOf(gameRoom.getUserList()));
+		return result;
+	}
+	
+	// 방 인원수 조회
+	@ResponseBody
+	@PostMapping("/srchRoom")
+	public Map<String, String> srchRoom(MainGame mainGame) {
+		//방만들기
+		GameRoom gameRoom = mainGameService.srchRoom(mainGame);
+		Map<String, String> result = new HashMap<String, String>();
+		result.put("gameRoom", gameRoom.toString());
+		return result;
+	}
+	
+	// 메인게임 화면 호출
 	@GetMapping("/mainGame")
 	public String mainGameList(Model model) {
+		//GameRoom gameRoom = roomManager.createRoom();
+		
+		// 사용자
+       // GameUser gameUser = new GameUser(1, "gompang");
+
+       // gameRoom.enterUser(gameUser);
+        
 		//전체 회원 조회
 		//List<MainGame> mainGame = mainGameService.selectMainGameList();
 		//model.addAttribute("mainGame",mainGame);
+
 		return "game/mainGame";
 	}
 	

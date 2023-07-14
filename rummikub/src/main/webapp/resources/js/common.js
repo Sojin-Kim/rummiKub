@@ -19,6 +19,10 @@ function saveSession(type, key, data){
 /**
  * 세션 조회
  * ex) getSession("local","login") -> 로컬 스토리지에 login이라는 key값의 데이터가 리턴됨.
+ *     값을 saveSession("local","login",'{"id": "soso"}') 로 넣었다면
+ *     '{"id": "soso"}' 이 JSON 형식임으로 가져올때 JSON.parse(getSession("local","login")) 로 가져와야함.
+ *     -> 다른 방법이 있을텐데 생각이 안남.. 간단한 방법 찾으면 수정하겠습니다..
+ *        공통 수정 시 이를 사용하여 개발한 소스는 개인이 수정해야함으로 나중에 개인 소스 수정 부탁드립니다.
  */
 function getSession(type, key){
 	if(type=="local"){

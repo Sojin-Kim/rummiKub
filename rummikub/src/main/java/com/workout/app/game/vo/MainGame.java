@@ -9,10 +9,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class MainGame {
 	
-	private String userId;		/* 사용자ID */
-	private String email;		/* 이메일 */
-	private String password;    /* 비밀번호 */
-	private String name;        /* 사용자이름 */
-	private String phoneNum;    /* 핸드폰번호 */
-	private String createdDate; /* 등록일자 */
+	private int mid;		/* 사용자ID */
+	private String nickName;        /* 사용자이름 */
+	
+	private int turnTime; /* 턴타임 */
+	private int gamerCnt; /* 참가자수 */
+	private int gameAmt;  /* 입장료 */
+
+	private int roomId;  /* 방ID */
 }
