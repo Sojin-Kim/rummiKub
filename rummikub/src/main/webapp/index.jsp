@@ -56,8 +56,13 @@ position: relative;
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
-	saveSession("local","login","{email:so97so@naver.com, nickname:sojin}");
-	sessionSrch();	// 세션 정보 조회 후 페이지 이동
+	// 임시 로그인 정보 담기 (삭제 예정)
+	saveSession("local","login",'{"mid":1, "nickname":"sojin"}');	// 데이터 형식 맞추기
+	
+	// 서버 접속
+	//tcpServerStart();
+	
+	//sessionSrch();	// 세션 정보 조회 후 페이지 이동
 });
 
 /**
@@ -79,36 +84,19 @@ function sessionSrch(){
 	}, 6500);	// 6.5초 이후 replace 실행
 }
 
-/* 
-
-var ws;
-
-function connect() {
-    var username = document.getElementById("username").value;
-    
-    var host = document.location.host;
-    var pathname = document.location.pathname;
-    console.log(host);
-    console.log(pathname);
-    
-    ws = new WebSocket("ws://localhost:10000/chat/" + username);
-
-    ws.onmessage = function(event) {
-    var log = document.getElementById("log");
-        console.log(event.data);
-        var message = JSON.parse(event.data);
-        log.innerHTML += message.from + " : " + message.content + "\n";
-    };
+function tcpServerStart() {
+	$.ajax({
+	    url: "load/tcpServerStart", //request 보낼 서버의 경로
+	    type:'get', // 메소드(get, post)
+	    data: null,
+	    success: function(data) {
+	        //서버로부터 정상적으로 응답이 왔을 때 실행
+	    },
+	    error: function(err) {
+	        //서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+	    }
+	});
 }
-
-function send() {
-    var content = document.getElementById("msg").value;
-    var json = JSON.stringify({
-        "content":content
-    });
-
-    ws.send(json);
-} */
 
 </script>
 <body>

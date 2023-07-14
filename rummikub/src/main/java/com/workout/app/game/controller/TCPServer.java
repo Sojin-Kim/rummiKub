@@ -22,8 +22,8 @@ public class TCPServer implements Runnable {
 	}
 
 	public static void main(String[] args) {
-		ExecutorService eService = Executors.newFixedThreadPool(5);
-		// 쓰레드 생성. 6번째 접속부터는 BLOCKING-참가자를 6명으로 제한
+		ExecutorService eService = Executors.newFixedThreadPool(4);
+		// 쓰레드 생성. 4번째 접속부터는 BLOCKING-참가자를 4명으로 제한
 
 		System.out.println("#서버 시작");
 
@@ -71,7 +71,7 @@ public class TCPServer implements Runnable {
 				// readLine(): client가 보낸 msg를 br에서 한줄씩 꺼냄
 				// System.out.println("[" + UserID + "] " + inputLine);
 				// 클라이언트에게서 받아온 정보를 한줄씩 출력
-
+ 
 				for (int i = 0; i < list.size(); i++) {
 					// ArrayList의 사이즈만큼 for문을 돌리면서 모든 클라이언트에게 메시지 전송
 					out = list.get(i).getOutputStream();

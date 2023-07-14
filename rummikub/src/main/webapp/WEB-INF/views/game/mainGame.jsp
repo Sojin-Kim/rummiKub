@@ -65,7 +65,14 @@
 	
 		<!-- 히든 처리 모아두기 -->
 		<div id="hidden">
-			<input type="button" value="시작하기" id="startBtn" onclick="start()">
+			턴타임
+			<input type="text" value="30" id="turnTime"><br/>
+			참가자수
+			<input type="text" value="4" id="gamerCnt"><br/>
+			입장료
+			<input type="text" value="100" id="gameAmt"><br/>
+			
+			<input type="button" value="방 정보 조회" id="startBtn" onclick="srchRoom()">
 			<div id="card">
 			  <div id="jokercard">
 			    <div class="blackcard card cardPack" id="card105">J</div>
